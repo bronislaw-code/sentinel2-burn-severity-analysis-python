@@ -192,3 +192,12 @@ pip install -r requirements.txt
 ```
 
 Ouvrir ensuite le dossier dans **VS Code** (en sélectionnant l'interpréteur `.venv/bin/python`) et exécuter successivement les trois notebooks situés dans le répertoire `notebooks/`.
+
+---
+
+## 9. Perspectives et Travaux Futurs
+
+1. **Approche probabiliste non supervisée par Modèles de Mélange Gaussien (GMM)** :
+   L'inspection visuelle du cube spectral 3D démontre que les nuages de points adoptent une géométrie ellipsoïdale étirée le long de la trajectoire de combustion, alors que l'algorithme K-Means impose des frontières sphériques isotropes. Une extension directe de ce travail consistera à implémenter un modèle **GMM (`GaussianMixture`)** à matrice de covariance complète, permettant de modéliser l'anisotropie des clusters et de générer une **carte d'incertitude spatiale** (via l'entropie de probabilité d'appartenance) sur les zones de transition.
+2. **Passage à l'apprentissage supervisé (*Supervised Machine Learning*)** :
+   Ce projet trouve son prolongement direct dans un second dépôt dédié à la classification supervisée (**Régression Logistique vs Forêts Aléatoires / Random Forest**), intégrant l'ensemble des bandes spectrales brutes Sentinel-2, l'évaluation par matrices de confusion, courbes ROC-AUC et l'analyse de l'importance des variables (*Feature Importance*).
