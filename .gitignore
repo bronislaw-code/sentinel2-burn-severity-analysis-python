@@ -5,3 +5,8 @@ data/
 outputs/*.tif
 outputs/*.geojson
 .DS_Store
+
+# Notatki własne LibreOffice i projekty robocze QGIS
+*.odt
+.~lock.*
+QGIS/
