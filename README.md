@@ -13,19 +13,19 @@ Une chaîne de traitement **Spatial Data Science / Code-First** complète en Pyt
 
 ## 📌 Architecture du Projet (Deux Approches Complémentaires)
 
-Ce dépôt est structuré en deux volets analytiques :
+Ce dépôt est structuré en deux volets analytiques situés dans le dossier `notebooks/` :
 
-1. **Volet 1 — Pipeline Géomatique Standard (`burn_severity_analysis.ipynb`) :**  
+1. **Volet 1 — Pipeline Géomatique Standard (`notebooks/burn_severity_analysis.ipynb`) :**  
    Calcul matriciel des indices spectraux (**dNBR**, **dNDVI**, **dNBR2**), extraction dynamique de la résolution spatiale via la matrice affine ($51,30\text{ m}^2/\text{px}$), classification selon les **seuils fixes officiels de l'USGS**, filtrage morphologique (`sieve`) et vectorisation topologique (`GeoJSON`).
-2. **Volet 2 — Approche Machine Learning Non-Supervisée (`ml_k_means_1D_burn_severity_analysis.ipynb`) :**  
+2. **Volet 2 — Approche Machine Learning Non-Supervisée (`notebooks/ml_k_means_1D_burn_severity_analysis.ipynb`) :**  
    Expérience *Ceteris Paribus* appliquant l'algorithme **K-Means 1D ($k=5$)** strictement sur l'indice **dNBR** afin d'adapter les seuils de sévérité à la réalité écologique du maquis méditerranéen et corriger l'effet de saturation des seuils nord-américains de l'USGS.
 
 ---
 
 ## 📊 Volet 1 : Résultats Géomatiques Standards (Norme USGS)
 
-### 🖼️ Vue d'ensemble multi-indices (Grille 2x2)
-![Vue d'ensemble cartographique](outputs/overview.png)
+### 🗺️ Carte de Sévérité de l'Incendie (Seuils USGS)
+![Carte de sévérité USGS](outputs/burn_severity.png)
 
 ### 📈 Bilan des surfaces brûlées (Seuils USGS)
 
@@ -62,6 +62,7 @@ Les seuils standards de l'USGS (`0.10`, `0.27`, `0.44`, `0.66`) ont été calibr
 > **Conclusion opérationnelle :** Alors que la norme USGS classe plus de **53 % du sinistre (1 237 ha)** en sévérité maximale (*Very High*), laissant peu de visibilité aux gestionnaires forestiers (ONF / DFCI), la classification **K-Means 1D** segmente finement l'intérieur du brasier et cible avec précision les zones prioritaires de lutte contre l'érosion post-incendie.
 
 ---
+
 ## 📁 Structure du Dépôt
 
 ```text
@@ -71,8 +72,7 @@ sentinel2-burn-severity-analysis-python/
 │   ├── burn_severity_analysis.ipynb                 # Volet 1 : Pipeline Géomatique (USGS)
 │   └── ml_k_means_1D_burn_severity_analysis.ipynb   # Volet 2 : Machine Learning (K-Means 1D)
 ├── outputs/                                         # Cartes PNG, Rasters GeoTIFF et GeoJSON
-│   ├── overview.png                                 # Panneau composite 2x2
-│   ├── burn_severity.png                            # Carte de sévérité USGS
+│   ├── burn_severity.png                            # Carte de sévérité USGS (PNG)
 │   ├── eda_dnbr_distribution.png                    # Distribution statistique du dNBR
 │   ├── histogram_usgs_vs_kmeans1d.png               # Comparaison des seuils sur histogramme log
 │   └── usgs_vs_kmeans1d.png                         # Comparaison cartographique USGS vs K-Means
